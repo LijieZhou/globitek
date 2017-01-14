@@ -30,9 +30,9 @@
   }
 
   // has_valid_email_format('test@test.com')
-  function has_valid_email_format($value) {
-    //use regrex to validate email
-    return preg_match("/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/ ", $value);
+  function has_valid_email_format($email) {
+        // DONE
+        return preg_match('/\A[A-Za-z0-9\_\.]+@[A-Za-z0-9\.]+\.[A-Za-z0-9\.]{2,}\Z/', $email);
   }
 
   // has_valid_username_format

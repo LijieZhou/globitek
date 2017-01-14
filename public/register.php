@@ -58,8 +58,7 @@
       $errors[] = "Email must be between 2 and 30 characters.";
      
     }elseif(!has_valid_email_format($_POST['email'])){
-      $errors[] = "Last name cannot include special characters.";
-      
+      $errors[] = "Enter a valid email address.";
     }
     else{
       $last_name = trim($_POST['email']);
