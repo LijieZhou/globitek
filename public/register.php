@@ -20,6 +20,8 @@
     $last_name = isset($_POST['last_name']) ? $_POST['last_name'] : '';
     $username = isset($_POST['username']) ? $_POST['username'] :'';
     $email = isset($_POST['email']) ? $_POST['email'] : '';
+    echo $first_name;
+    echo $last_name;
     
 
 
@@ -35,12 +37,12 @@
       $errors[] = "First name cannot be blank.";
       echo "post";
       
-    }elseif (has_length($first_name,['min' => 2, 'max'=> 255])) {
+    }if (has_length($first_name,['min' => 2, 'max'=> 255])) {
       $errors[] = "First name must be between 2 and 20 characters.";
     }
     if (is_blank($last_name)) {
     $errors[] = "Last name cannot be blank.";
-  } elseif (has_length($last_name, ['min' => 2, 'max' => 255])) {
+  } if (!has_length($last_name, ['min' => 2, 'max' => 255])) {
     $errors[] = "Last name must be between 2 and 30 characters.";
   }
     if(!has_valid_email_format($email)){
@@ -49,10 +51,10 @@
     if(is_blank($username)){
       $errors[] = "Username cannot be blank";
       echo "Hello";
-    }elseif (has_length($username,['min' => 8])) {
+    }if (has_length($username,['min' => 8])) {
       $errors[] = "Username must be at least 8 characters";
     }
-    echo $errors[0];
+    echo $errors[1];
     
   }//This is the end of POST request
   
