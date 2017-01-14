@@ -12,16 +12,15 @@
   // if this is a POST request, process the form
   // Hint: private/functions.php can help
 
-  // if($_SERVER['REQUEST_METHOD'] != 'POST'){
-   if(!isset($_POST['submit'])) {
-    echo "post";
+  if($_SERVER['REQUEST_METHOD'] == 'POST'){
+   
+    // echo "post";
     
     $first_name = isset($_POST['first_name']) ? $_POST['first_name'] : '';
     $last_name = isset($_POST['last_name']) ? $_POST['last_name'] : '';
     $username = isset($_POST['username']) ? $_POST['username'] :'';
     $email = isset($_POST['email']) ? $_POST['email'] : '';
-    // echo "post";
- 
+    
 
 
     // Confirm that POST values are present before accessing them.
@@ -34,6 +33,7 @@
     
     if (is_blank($first_name)){
       $errors[] = "First name cannot be blank.";
+      echo "post";
       
     }elseif (has_length($first_name,['min' => 2, 'max'=> 255])) {
       $errors[] = "First name must be between 2 and 20 characters.";
@@ -55,9 +55,7 @@
     echo $errors[0];
     
   }//This is the end of POST request
-  // else{
-  //   echo "before post";
-  // }
+  
 
     
 
