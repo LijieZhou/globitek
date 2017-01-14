@@ -51,7 +51,7 @@
     if(is_blank($username)){
       $errors[] = "Username cannot be blank";
       echo "Hello";
-    }if (has_length($username,['min' => 8])) {
+    }if (!has_length($username,['min' => 8])) {
       $errors[] = "Username must be at least 8 characters";
     }
     echo $errors[1];
