@@ -127,3 +127,20 @@ INSERT INTO `salespeople_territories` (`territory_id`, `salesperson_id`) VALUES 
 INSERT INTO `salespeople_territories` (`territory_id`, `salesperson_id`) VALUES (60, 7);
 INSERT INTO `salespeople_territories` (`territory_id`, `salesperson_id`) VALUES (61, 5);
 INSERT INTO `salespeople_territories` (`territory_id`, `salesperson_id`) VALUES (62, 9);
+
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
