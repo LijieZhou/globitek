@@ -37,7 +37,7 @@
       $errors[] = "First name cannot be blank.";
       echo "post";
       
-    }if (has_length($first_name,['min' => 2, 'max'=> 255])) {
+    }if (!has_length($first_name,['min' => 2, 'max'=> 255])) {
       $errors[] = "First name must be between 2 and 20 characters.";
     }
     if (is_blank($last_name)) {
@@ -46,7 +46,7 @@
     $errors[] = "Last name must be between 2 and 30 characters.";
   }
     if(!has_valid_email_format($email)){
-      $errors[] = "Email must contain @.";
+      $errors[] = "Email m!ust contain @.";
     }
     if(is_blank($username)){
       $errors[] = "Username cannot be blank";
