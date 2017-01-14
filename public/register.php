@@ -8,8 +8,6 @@
   $email = '';
   $errors = [];
   
-  
-
 
   // if this is a POST request, process the form
   // Hint: private/functions.php can help
@@ -22,23 +20,23 @@
     // Perform Validations
     // Hint: Write these in private/validation_functions.php
     
+    $errors = [];
     
-     
+
     //First name validation
     if (is_blank($_POST['first_name'])){
       $errors[] = "First name cannot be blank.";
-     
       
     }elseif(!has_length($_POST['first_name'],['min' => 2, 'max'=> 255])) {
       $errors[] = "First name must be between 2 and 20 characters.";
-      
-    }elseif(!has_valid_name_format){
-      $errors[] = "First name cannot include special characters.";
-      
+      // echo "I am from has length";
+      // echo $errors[0];
     }
     else{
       $first_name = trim($_POST['first_name']);
     }
+
+   
 
     //Last name validation 
     if (is_blank($_POST['last_name'])) {
@@ -46,9 +44,6 @@
       
     }elseif (!has_length($_POST['last_name'], ['min' => 2, 'max' => 255])) {
       $errors[] = "Last name must be between 2 and 30 characters.";
-      
-    }elseif(!has_valid_name_format($_POST['last_name'])){
-      $errors[] = "Last name cannot include special characters.";
       
     }
     else{
@@ -62,7 +57,7 @@
     }elseif(!has_length($_POST['email'],['min' => 2, 'max' => 255])){
       $errors[] = "Email must be between 2 and 30 characters.";
      
-    }elseif(!has_valid_name_format($_POST['email'])){
+    }elseif(!has_valid_email_format($_POST['email'])){
       $errors[] = "Last name cannot include special characters.";
       
     }
@@ -74,10 +69,12 @@
     
     
     //Username validation
-    if(is_blank($username)){
+    if(is_blank($_POST['username'])){
       $errors[] = "Username cannot be blank";
+      echo "from the username validation";
+      echo $errors[0];
       
-    }elseif(!has_length($username,['min' => 8, 'max' =>255])) {
+    }elseif(!has_length($_POST['username'],['min' => 8, 'max' =>255])) {
       $errors[] = "Username must be at least 8 characters";
       
     }elseif (!has_valid_username_format($_POST['username'])) {
@@ -86,13 +83,9 @@
     }else{
       $username = trim($_POST['username']);
     }
-   
-    
-  echo $errors[0];
-  echo $errors[1];
-  
 
-    
+
+   
 
     // if there were no errors, submit data to database
   if(empty($errors)){
