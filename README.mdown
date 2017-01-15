@@ -19,21 +19,20 @@ The following **required** functionality is complete:
 * [x] Sanitize all dynamic output for HTML.
 
 The following **optional** features are implemented:
-* [] Validate that the form values contain only whitelisted characters.
-* [] Validate the uniqueness of the username.
+* [x] Validate that the form values contain only whitelisted characters.
+* [x] Validate the uniqueness of the username.
 
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/BJdTBAM.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/jPL1IJH.gif' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Note
 
-The biggest challenge is to use loop to display radio buttons and retain the radio button after submitting form
 
 ## License
 

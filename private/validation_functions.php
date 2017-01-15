@@ -24,22 +24,23 @@
   }
 
 
-  //has_valid_name_format
+  // has_valid_name_format
   function has_valid_name_format($value){
-    return preg_match("/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/ ", $value);
+    return preg_match("/^[A-Za-z_'.-]+$/ ", $value);
   }
 
   // has_valid_email_format('test@test.com')
-  function has_valid_email_format($email) {
-        // DONE
-        return preg_match('/\A[A-Za-z0-9\_\.]+@[A-Za-z0-9\.]+\.[A-Za-z0-9\.]{2,}\Z/', $email);
+  function has_valid_email_format($value) {
+        
+      return preg_match("/@.+\./", $value);
   }
 
   // has_valid_username_format
   function has_valid_username_format($value){
     //use regrex to validate username
-    return preg_match("/^[A-Za-z_]+$/ ", $value);
+    return preg_match("/\A[A-Za-z0-9\s\-,\.\']+\Z/", $value);
   }
+
 
 ?>
 

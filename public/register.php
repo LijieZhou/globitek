@@ -29,8 +29,9 @@
       
     }elseif(!has_length($_POST['first_name'],['min' => 2, 'max'=> 255])) {
       $errors[] = "First name must be between 2 and 20 characters.";
-      // echo "I am from has length";
-      // echo $errors[0];
+      
+    }elseif(!has_valid_name_format($_POST['first_name'])){
+      $errors[] = "First name must not contain special characters.";
     }
     else{
       $first_name = trim($_POST['first_name']);
@@ -45,9 +46,11 @@
     }elseif (!has_length($_POST['last_name'], ['min' => 2, 'max' => 255])) {
       $errors[] = "Last name must be between 2 and 30 characters.";
       
+    }elseif(!has_valid_name_format($_POST['last_name'])){
+      $errors[] = "Last name must not contain special characters.";
     }
     else{
-    $last_name = trim($_POST['last_name']);
+      $last_name = trim($_POST['last_name']);
     }
     
     //Email validation 
@@ -61,7 +64,7 @@
       $errors[] = "Enter a valid email address.";
     }
     else{
-      $last_name = trim($_POST['email']);
+      $email = trim($_POST['email']);
 
     }
 
@@ -79,8 +82,16 @@
     }elseif (!has_valid_username_format($_POST['username'])) {
       $errors[] = "Username cannot include special characters.";
       
-    }else{
+    }
+    else{
       $username = trim($_POST['username']);
+    }
+
+    //Check uniqueness of username
+    $sql = sprintf("SELECT * FROM users WHERE username = \"%s\"; ",$_POST['username']);
+    $result = $db->query($sql);
+    if ($result->num_rows >0){
+      $errors[] = "This is not a unique username.";
     }
 
 
